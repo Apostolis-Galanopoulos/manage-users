@@ -1,5 +1,13 @@
 {
   "users": [
-    { }
+    {
+      "id": "assdasdsad",
+      "name": "Apo",
+      "lastName": "Gala",
+      "email": "apo@gala.com",
+      "avatar": "dsdsd",
+      "createAt": "string",
+      "updateAt": "string"
+     }
   ]
 }
