@@ -11,7 +11,32 @@ export class UserService {
     private readonly httpService: HttpService
   ) { }
 
+  /**
+   *
+   * @returns
+   */
   getAll (): Observable<User[]> {
     return this.httpService.get(ENDPOINT_USERS);
+  }
+  /**
+   *
+   * @param user
+   * @returns
+   */
+  create (user: User): Observable<User> {
+    const event = new Date();
+    user.createAt = event.toISOString();
+    user.updateAt = '';
+    return this.httpService.post(ENDPOINT_USERS, user);
+  }
+  /**
+   *
+   * @param user
+   * @returns
+   */
+  update (user: User): Observable<User> {
+    const event = new Date();
+    user.updateAt = event.toISOString();
+    return this.httpService.post(ENDPOINT_USERS, user);
   }
 }

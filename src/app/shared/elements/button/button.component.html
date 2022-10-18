@@ -1,1 +1,16 @@
-<button mat-raised-button (click)="click()" [color]="color">{{name}}</button>
+<button
+  *ngIf="type === 'raised'"
+  mat-raised-button
+  (click)="click()"
+  [disabled]="disabled"
+  [color]="color">
+  {{ name }}
+</button>
+<button
+  *ngIf="type === 'icon'"
+  mat-raised-button
+  (click)="click()"
+  [disabled]="disabled"
+  [color]="color">
+  <mat-icon>home</mat-icon>
+</button>

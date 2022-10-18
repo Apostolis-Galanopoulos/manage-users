@@ -1,0 +1,23 @@
+:host {
+  .form-group {
+    display: flex;
+    flex-direction: row;
+  }
+  .form-input-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+    .input-field {
+      margin-bottom: 1em;
+    }
+    .input-field-error {
+      color: red;
+      font-size: 12px;
+    }
+  }
+  .submit-action {
+    display: flex;
+    justify-content: flex-end
+  }
+}

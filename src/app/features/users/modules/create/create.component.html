@@ -1,0 +1,33 @@
+<div class="container">
+  <usr-breadcrumb [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
+  <p>create works!</p>
+  <form class="form-group" [formGroup]="userForm">
+      <div class="form-avatar">
+
+      </div>
+      <div class="form-input-fields">
+        <div class="input-field">
+          <usr-input formControlNameValue="name"> </usr-input>
+          <span  class="input-field-error error" *ngIf="userForm.get('name')?.errors && userForm.get('name')?.dirty">
+            Name is <strong>required</strong>
+          </span>
+        </div>
+        <div class="input-field">
+          <usr-input formControlNameValue="lastName"> </usr-input>
+          <span  class="input-field-error error" *ngIf="userForm.get('lastName')?.errors && userForm.get('lastName')?.dirty">
+            LastName is <strong>required</strong>
+          </span>
+        </div>
+        <div class="input-field">
+          <usr-input formControlNameValue="email"> </usr-input>
+          <span  class="input-field-error error" *ngIf="userForm.get('email')?.errors && userForm.get('email')?.dirty">
+            Email is <strong>required</strong>
+          </span>
+        </div>
+      </div>
+  </form>
+  <div class="submit-action">
+    <usr-button (click)="save()" [disabled]="userForm.invalid" name="Save"></usr-button>
+  </div>
+</div>
+

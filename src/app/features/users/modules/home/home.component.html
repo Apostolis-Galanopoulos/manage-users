@@ -1,0 +1,11 @@
+<div class="container">
+  <usr-breadcrumb [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
+  <div class="users-container">
+    <ng-container *ngFor="let user of (users$ | async)?.users; trackBy: trackByFn">
+      <div>
+        <usr-card [data]="{name: user.name, lastName: user.lastName, email: user.email, hasDeleteAction: false}"></usr-card>
+      </div>
+    </ng-container>
+  </div>
+  <usr-paginator [length]="(users$ | async)?.totalLength" (onPageEvent)="pageChange($event)"></usr-paginator>
+</div>
