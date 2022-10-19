@@ -1,0 +1,15 @@
+<usr-input [accepts]="accepts" type="file" #fileUpload class="file-input" (change)="onFileSelected($event)" [formControlNameValue]="formControlNameValue"> </usr-input>
+<div class="file-container">
+  <usr-display-image [source]="base64Output" class="image-preview"></usr-display-image>
+  <div class="file-upload">
+    {{ fileName || "No file uploaded yet." }}
+
+    <usr-button
+      type="icon"
+      iconName="file_upload"
+      (click)="fileUploadEvent()"
+    >
+    </usr-button>
+  </div>
+</div>
+

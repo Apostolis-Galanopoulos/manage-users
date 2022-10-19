@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { AbstractControl, ControlContainer, ControlValueAccessor, FormControl } from '@angular/forms';
 import { SafeHtmlPipe } from '@app/shared/pipes/safe-html.pipe';
 
@@ -11,6 +11,8 @@ import { SafeHtmlPipe } from '@app/shared/pipes/safe-html.pipe';
 })
 export class InputComponent implements ControlValueAccessor, AfterViewInit {
 
+  @Input() accepts: string = '*';
+  @Output() change: EventEmitter<Event> = new EventEmitter();
   @Input() set placeholder (val: string) {
     this.placeholderText = this.safeHtmlPipe.transform(val) as string;
 
@@ -40,5 +42,8 @@ export class InputComponent implements ControlValueAccessor, AfterViewInit {
 
   get formControl (): FormControl {
     return this.control = this.controlContainer.control!!.get(this.formControlNameValue) as FormControl;
+  }
+  changeEvent (event: Event) {
+    this.change.emit(event);
   }
 }

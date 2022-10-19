@@ -1,1 +1,1 @@
-<input #inputEl [type]="type" [formControl]="formControl" >
+<input #inputEl (change)="changeEvent($event)" [accept]="accepts" [type]="type" [formControl]="formControl" >

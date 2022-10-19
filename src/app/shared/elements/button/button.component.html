@@ -8,9 +8,8 @@
 </button>
 <button
   *ngIf="type === 'icon'"
-  mat-raised-button
+  mat-icon-button
   (click)="click()"
-  [disabled]="disabled"
-  [color]="color">
-  <mat-icon>home</mat-icon>
+  [disabled]="disabled">
+  <mat-icon>{{iconName}}</mat-icon>
 </button>

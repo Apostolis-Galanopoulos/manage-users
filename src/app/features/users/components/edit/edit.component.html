@@ -1,0 +1,7 @@
+<div class="container">
+  <usr-breadcrumb [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
+  <usr-user-form [userForm]="userForm"></usr-user-form>
+  <div class="submit-action">
+    <usr-button (click)="save()" [disabled]="userForm.invalid" name="Save"></usr-button>
+  </div>
+</div>

@@ -13,13 +13,13 @@
       top: 0;
       transition: all 0.2s linear;
       width: 100%;
-      z-index: 1010;
+      z-index: 500;
 
       .usr-navbar {
           display: flex;
           flex-direction: row;
           height: 70px;
-          justify-content: space-between;
+          justify-content: flex-start;
           overflow: hidden;
 
           .logo {
@@ -28,5 +28,12 @@
               width: 70px;
           }
       }
+    .nav-tabs {
+      display: flex;
+      flex-direction: column;
+      li > .active {
+        color: green;
+      }
+    }
   }
 }

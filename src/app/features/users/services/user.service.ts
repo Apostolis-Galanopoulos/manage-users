@@ -39,4 +39,20 @@ export class UserService {
     user.updateAt = event.toISOString();
     return this.httpService.post(ENDPOINT_USERS, user);
   }
+/**
+ *
+ * @param id
+ * @returns
+ */
+  gteOne (id: string): Observable<User> {
+    return this.httpService.get(`${ENDPOINT_USERS}/${id}`);
+  }
+  /**
+   *
+   * @param id
+   * @returns
+   */
+  delete (id: string): Observable<string> {
+    return this.httpService.delete(`${ENDPOINT_USERS}/${id}`);
+  }
 }

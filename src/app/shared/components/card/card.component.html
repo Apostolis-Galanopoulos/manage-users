@@ -1,11 +1,12 @@
 <mat-card class="user-card">
-  <mat-card-title-group>
+  <mat-card-title-group class="user-card-group" [routerLink]="'/users/preview/'+data.id">
     <mat-card-title>{{data.name+ ' '}}{{data.lastName}}</mat-card-title>
     <mat-card-subtitle>{{data.email}}</mat-card-subtitle>
-    <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+    <usr-display-image mat-card-sm-image [source]="data.avatar" class="image-preview"></usr-display-image>
+    <!-- <img  src="https://material.angular.io/assets/img/examples/shiba2.jpg" > -->
   </mat-card-title-group>
   <mat-card-actions align="end">
-    <button mat-button>Edit</button>
-    <button mat-button>Delete</button>
+    <button mat-button (click)="actions('edit', data.id)">Edit</button>
+    <button mat-button (click)="actions('delete', data.id)">Delete</button>
   </mat-card-actions>
 </mat-card>

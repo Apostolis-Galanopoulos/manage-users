@@ -11,7 +11,7 @@ export class ButtonComponent {
   @Input() name!: string;
   @Input() color: string = 'primary';
   @Input() disabled: boolean = false;
-  @Input() isIconButton: boolean = false;
+  @Input() iconName!: string;
   @Input() isRoundButton: boolean = false;
   @Input() type: ButtonType = 'raised';
   @Output() clicked: EventEmitter<string> = new EventEmitter();

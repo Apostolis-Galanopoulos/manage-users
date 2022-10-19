@@ -1,6 +1,6 @@
 <div class="breadcrumb">
   <ng-container *ngFor="let breadcrumb of breadcrumbs; trackBy: trackByFn; first as isFirst;">
     <p class="breadcrumb-link" *ngIf="!breadcrumb.path"><span *ngIf="!isFirst">{{">"}}</span>{{breadcrumb.name}} </p>
-    <a class="breadcrumb-link" *ngIf="breadcrumb.path" [href]="breadcrumb.path"><span *ngIf="!isFirst">{{">"}}</span>{{ breadcrumb.name }}  </a>
+    <a class="breadcrumb-link" *ngIf="breadcrumb.path" [routerLink]="breadcrumb.path"><span *ngIf="!isFirst">{{">"}}</span>{{ breadcrumb.name }}  </a>
   </ng-container>
 </div>

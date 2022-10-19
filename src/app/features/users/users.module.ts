@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { USER_COLLECTION } from './constants/user.constants';
 
 import { InitService } from './services/init.service';
+import { ManageUserService } from './services/manage-user.service';
 import { UserService } from './services/user.service';
 import { UserEffects } from './state/user.effect';
 import { userReducer } from './state/user.reducer';
@@ -22,6 +23,7 @@ import { UsersRoutingModule } from './users-routing.module';
     EffectsModule.forFeature([UserEffects]),
   ],
   providers: [
+    ManageUserService,
     UserService,
     InitService,
   ]

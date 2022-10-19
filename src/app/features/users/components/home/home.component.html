@@ -3,7 +3,7 @@
   <div class="users-container">
     <ng-container *ngFor="let user of (users$ | async)?.users; trackBy: trackByFn">
       <div>
-        <usr-card [data]="{name: user.name, lastName: user.lastName, email: user.email, hasDeleteAction: false}"></usr-card>
+        <usr-card [data]="{id: user.id, name: user.name, lastName: user.lastName, email: user.email, avatar: user.avatar, hasDeleteAction: false}" (action)="onActionEvent($event)"></usr-card>
       </div>
     </ng-container>
   </div>

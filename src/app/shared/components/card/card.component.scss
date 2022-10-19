@@ -4,6 +4,8 @@
     justify-content: space-evenly !important;
     flex-direction: row-reverse;
     img {
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
       border-radius: 100%;
     }
 }
@@ -11,5 +13,8 @@
 :host {
   .user-card {
     max-width: 15rem;
+  }
+  .user-card-group {
+    cursor: pointer;
   }
 }

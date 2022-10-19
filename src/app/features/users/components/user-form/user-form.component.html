@@ -1,9 +1,6 @@
-<div class="container">
-  <usr-breadcrumb [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
-  <p>create works!</p>
-  <form class="form-group" [formGroup]="userForm">
+<form class="form-group" [formGroup]="userForm">
       <div class="form-avatar">
-
+        <usr-file-upload [data]="userForm.get('avatar')?.value" accepts="image/png, image/jpeg, image/jpg" (fileUploaded)="fileUploaded($event)" formControlNameValue="image"></usr-file-upload>
       </div>
       <div class="form-input-fields">
         <div class="input-field">
@@ -26,8 +23,3 @@
         </div>
       </div>
   </form>
-  <div class="submit-action">
-    <usr-button (click)="save()" [disabled]="userForm.invalid" name="Save"></usr-button>
-  </div>
-</div>
-

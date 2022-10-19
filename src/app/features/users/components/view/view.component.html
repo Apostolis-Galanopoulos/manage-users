@@ -1,0 +1,4 @@
+<div class="container">
+  <usr-breadcrumb *ngIf="breadcrumbs.length > 0" [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
+  <usr-card [data]="{id: user.id ,name: user.name, lastName: user.lastName, email: user.email, avatar: user.avatar, hasDeleteAction: false}"></usr-card>
+</div>
