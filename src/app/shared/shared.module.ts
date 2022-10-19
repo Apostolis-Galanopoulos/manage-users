@@ -10,6 +10,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
+import { AlertMessageComponent } from './components/alert-message/alert-message.component';
+import { AlertMessageService } from './components/alert-message/alert-message.service';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { CardComponent } from './components/card/card.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -31,6 +33,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     FileUploadComponent,
     DisplayImageComponent,
     ConfirmationDialogComponent,
+    AlertMessageComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +62,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     ConfirmationDialogService,
+    AlertMessageService,
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
       useValue: { color: 'primary' },

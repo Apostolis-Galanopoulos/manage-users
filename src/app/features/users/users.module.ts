@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@app/shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { USER_COLLECTION } from './constants/user.constants';
@@ -19,6 +20,7 @@ import { UsersRoutingModule } from './users-routing.module';
     UsersRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     StoreModule.forFeature(USER_COLLECTION, userReducer),
     EffectsModule.forFeature([UserEffects]),
   ],

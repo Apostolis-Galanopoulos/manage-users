@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbModel } from '@app/shared/components/breadcrumb/breadcrumb.model';
-import { Store } from '@ngrx/store';
-import { tap } from 'rxjs/operators';
 import { User } from '../../models/user.model';
 import { ManageUserService } from '../../services/manage-user.service';
 import { UserFormService } from '../../services/user.form.service';
-import { UserService } from '../../services/user.service';
-import { addUser } from '../../state/user.action';
 
 @Component({
   selector: 'usr-edit',
@@ -30,8 +26,6 @@ export class EditComponent implements OnInit {
   }];
   constructor (
     private readonly userFormService: UserFormService,
-    private readonly userService: UserService,
-    private readonly store: Store<User>,
     private readonly manageUserService: ManageUserService,
     private readonly activatedRoute: ActivatedRoute,
   ) {
@@ -48,20 +42,8 @@ export class EditComponent implements OnInit {
     }
   }
 
-  save (): void {
-    if (this.userForm.valid) {
-      console.log(this.userForm);
-      this.userService.update(this.userForm.value)
-      .pipe(
-        tap(user => {
-          this.store.dispatch(addUser({ user: user }));
-          console.log('successfully');
-        })
-      )
-      .subscribe(() => {
-        this.manageUserService.goTo(['/users']);
-      });
-    }
+  update (): void {
+    this.manageUserService.update(this.userForm, this.user);
   }
   /**
    *

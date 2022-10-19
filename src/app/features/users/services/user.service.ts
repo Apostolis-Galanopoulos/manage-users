@@ -16,7 +16,7 @@ export class UserService {
    * @returns
    */
   getAll (): Observable<User[]> {
-    return this.httpService.get(ENDPOINT_USERS);
+    return this.httpService.get(`${ENDPOINT_USERS}?_sort=createAt`);
   }
   /**
    *

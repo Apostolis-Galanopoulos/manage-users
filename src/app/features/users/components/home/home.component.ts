@@ -57,9 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
   onActionEvent (data: {action: string, id: string}) {
-    console.log(data);
     if (data.action === 'edit') {
-      console.log(`/users/edit/${data.id}`);
       this.manageUserService.goTo([`/users/edit/${data.id}`]);
     } else if (data.action === 'delete') {
       this.confirmationDialogService.openDialog({

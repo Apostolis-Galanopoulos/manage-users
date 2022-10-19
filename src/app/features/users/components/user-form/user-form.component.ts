@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,13 +6,10 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.scss']
 })
-export class UserFormComponent implements OnInit {
+export class UserFormComponent {
   @Input() userForm!: FormGroup;
   constructor (
   ) { }
-
-  ngOnInit (): void {
-  }
   fileUploaded (data: string): void {
     if (this.userForm) {
       this.userForm!.get('avatar')!.setValue(data);

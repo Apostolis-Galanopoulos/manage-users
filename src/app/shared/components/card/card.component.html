@@ -3,7 +3,6 @@
     <mat-card-title>{{data.name+ ' '}}{{data.lastName}}</mat-card-title>
     <mat-card-subtitle>{{data.email}}</mat-card-subtitle>
     <usr-display-image mat-card-sm-image [source]="data.avatar" class="image-preview"></usr-display-image>
-    <!-- <img  src="https://material.angular.io/assets/img/examples/shiba2.jpg" > -->
   </mat-card-title-group>
   <mat-card-actions align="end">
     <button mat-button (click)="actions('edit', data.id)">Edit</button>
