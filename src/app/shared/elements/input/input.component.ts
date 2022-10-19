@@ -13,23 +13,16 @@ export class InputComponent implements ControlValueAccessor, AfterViewInit {
 
   @Input() accepts: string = '*';
   @Output() change: EventEmitter<Event> = new EventEmitter();
-  @Input() set placeholder (val: string) {
-    this.placeholderText = this.safeHtmlPipe.transform(val) as string;
-
-  }
+  @Input() placeholder: string = '';
   @Input() type: string = 'text';
   @Input() formControlNameValue!: string;
   @ViewChild('inputEl') inputEL!: ElementRef;
   placeholderText!: string;
   control!: AbstractControl;
   constructor (
-    private readonly controlContainer: ControlContainer,
-    private readonly safeHtmlPipe: SafeHtmlPipe
-  ) { }
+    private readonly controlContainer: ControlContainer) { }
 
-  ngAfterViewInit (): void {
-    this.inputEL.nativeElement.placeholder = 'Please specify';
-  }
+  ngAfterViewInit (): void {}
   writeValue (): void {
 
   }

@@ -1,14 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { BreadcrumbModel } from '@app/shared/components/breadcrumb/breadcrumb.model';
-import { ConfirmationDialog } from '@app/shared/components/confirmation-dialog/confirmation-dialog.model';
-import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
 import { select, Store } from '@ngrx/store';
-import { takeUntil, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../../models/user.model';
 import { ManageUserService } from '../../services/manage-user.service';
-import { UserService } from '../../services/user.service';
-import { deleteUser } from '../../state/user.action';
 import { selectUserByPage } from '../../state/user.selector';
 
 @Component({
@@ -17,7 +13,7 @@ import { selectUserByPage } from '../../state/user.selector';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   pagination = {
     page: 0,
@@ -26,13 +22,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   breadcrumbs: BreadcrumbModel[] = [{
     name: 'Users',
   }];
-  private destroy$ = new Subject<void>();
   users$: Observable<{ users: User[], totalLength: number }> | undefined;
 
   constructor (
     private readonly store: Store<User>,
-    private readonly confirmationDialogService: ConfirmationDialogService,
-    private readonly userService: UserService,
     private readonly manageUserService: ManageUserService,
   ) {}
 
@@ -56,32 +49,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     }))
     );
   }
+  /**
+   *
+   * @param data
+   */
   onActionEvent (data: {action: string, id: string}) {
     if (data.action === 'edit') {
       this.manageUserService.goTo([`/users/edit/${data.id}`]);
     } else if (data.action === 'delete') {
-      this.confirmationDialogService.openDialog({
-        message: 'Are you sure you want to delete this user?',
-        title: 'Confirmation',
-        id: data.id,
-      })
-      .pipe(
-        takeUntil(this.destroy$)
-      )
-      .subscribe((conData) => {
-        this.handleConfirmationAction(conData);
-      });
+      this.manageUserService.deleteUser(data.id);
     }
-  }
-  /**
-   *
-   * @param action
-   */
-  handleConfirmationAction (action: ConfirmationDialog) {
-    this.userService.delete(action.id)
-    .subscribe(() => {
-      this.store.dispatch(deleteUser({ id: action.id }));
-    });
   }
   /**
    *
@@ -91,10 +68,5 @@ export class HomeComponent implements OnInit, OnDestroy {
    */
   trackByFn (_index: number, message: User): string {
     return message.id;
-  }
-
-  ngOnDestroy (): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

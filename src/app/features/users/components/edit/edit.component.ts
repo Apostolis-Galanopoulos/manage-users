@@ -45,6 +45,9 @@ export class EditComponent implements OnInit {
   update (): void {
     this.manageUserService.update(this.userForm, this.user);
   }
+  delete (): void {
+    this.manageUserService.deleteUser(this.user.id, ['/users']);
+  }
   /**
    *
    * @param user

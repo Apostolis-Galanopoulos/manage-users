@@ -4,19 +4,19 @@
       </div>
       <div class="form-input-fields">
         <div class="input-field">
-          <usr-input formControlNameValue="name"> </usr-input>
+          <usr-input formControlNameValue="name" placeholder="Your name"> </usr-input>
           <span  class="input-field-error error" *ngIf="userForm.get('name')?.errors && userForm.get('name')?.dirty">
             Name is <strong>required</strong>
           </span>
         </div>
         <div class="input-field">
-          <usr-input formControlNameValue="lastName"> </usr-input>
+          <usr-input formControlNameValue="lastName" placeholder="Your lastName"> </usr-input>
           <span  class="input-field-error error" *ngIf="userForm.get('lastName')?.errors && userForm.get('lastName')?.dirty">
             LastName is <strong>required</strong>
           </span>
         </div>
         <div class="input-field">
-          <usr-input formControlNameValue="email"> </usr-input>
+          <usr-input type="email" formControlNameValue="email" placeholder="Your email"> </usr-input>
           <span  class="input-field-error error" *ngIf="userForm.get('email')?.errors && userForm.get('email')?.dirty">
             Email is <strong>required</strong>
           </span>

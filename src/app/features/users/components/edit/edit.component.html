@@ -2,6 +2,7 @@
   <usr-breadcrumb [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
   <usr-user-form [userForm]="userForm"></usr-user-form>
   <div class="submit-action">
-    <usr-button (click)="update()" [disabled]="userForm.invalid" name="Update"></usr-button>
+    <usr-button class="btn update"(click)="update()" [disabled]="userForm.invalid" name="Update"></usr-button>
+    <usr-button (click)="delete()" name="Delete"></usr-button>
   </div>
 </div>

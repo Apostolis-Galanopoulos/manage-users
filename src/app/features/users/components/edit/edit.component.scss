@@ -1,6 +1,9 @@
 :host {
   .submit-action {
     display: flex;
-    justify-content: flex-end
+    justify-content: flex-end;
+    .btn.update {
+      margin-right: 0.5em;
+    }
   }
 }
