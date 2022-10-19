@@ -74,7 +74,7 @@ export class ManageUserService {
    * @param userId
    * @param redirectTo
    */
-  deleteUser (userId: string, redirectTo?: string[]): void {
+  deleteUser (userId: number, redirectTo?: string[]): void {
     this.confirmationDialogService.openDialog({
       message: 'Are you sure you want to delete this user?',
       title: 'Confirmation',
@@ -89,7 +89,7 @@ export class ManageUserService {
    * @param id
    * @param redirectTo
    */
-  delete (id: string, redirectTo?: string[]) {
+  delete (id: number, redirectTo?: string[]) {
     this.userService.delete(id)
     .subscribe(() => {
       if (redirectTo) {

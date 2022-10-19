@@ -44,7 +44,7 @@ export class UserService {
  * @param id
  * @returns
  */
-  gteOne (id: string): Observable<User> {
+  gteOne (id: number): Observable<User> {
     return this.httpService.get(`${ENDPOINT_USERS}/${id}`);
   }
   /**
@@ -52,7 +52,7 @@ export class UserService {
    * @param id
    * @returns
    */
-  delete (id: string): Observable<string> {
+  delete (id: number): Observable<string> {
     return this.httpService.delete(`${ENDPOINT_USERS}/${id}`);
   }
 }

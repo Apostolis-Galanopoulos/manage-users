@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
    *
    * @param data
    */
-  onActionEvent (data: {action: string, id: string}) {
+  onActionEvent (data: {action: string, id: number}) {
     if (data.action === 'edit') {
       this.manageUserService.goTo([`/users/edit/${data.id}`]);
     } else if (data.action === 'delete') {
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
    * @param message
    * @returns string
    */
-  trackByFn (_index: number, message: User): string {
+  trackByFn (_index: number, message: User): number {
     return message.id;
   }
 }

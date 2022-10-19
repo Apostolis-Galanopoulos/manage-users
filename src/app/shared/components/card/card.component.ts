@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
   ngOnInit (): void {
   }
 
-  actions (action: string, id: string): void {
+  actions (action: string, id: number): void {
     this.action.emit({action, id});
   }
 
