@@ -1,27 +1,31 @@
 ::ng-deep {
-  .mat-card-title-group {
-    display: flex;
-    justify-content: space-evenly !important;
-    flex-direction: row-reverse;
-    img {
-      -webkit-border-radius: 100%;
-      -moz-border-radius: 100%;
-      border-radius: 100%;
+    .mat-card-title-group {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly !important;
+
+        img {
+            border-radius: 100%;
+            border-radius: 100%;
+        }
+
+        .mat-card-title {
+            font-size: medium !important;
+            padding-left: 0.5em;
+        }
+
+        .mat-card-subtitle {
+            padding-left: 0.5em;
+        }
     }
-    .mat-card-title {
-      padding-left: 0.5em;
-      font-size: medium !important;
-  }
-  .mat-card-subtitle {
-    padding-left: 0.5em;
-  }
 }
-}
+
 :host {
-  .user-card {
-    max-width: 15rem;
-  }
-  .user-card-group {
-    cursor: pointer;
-  }
+    .user-card {
+        max-width: 15rem;
+    }
+
+    .user-card-group {
+        cursor: pointer;
+    }
 }

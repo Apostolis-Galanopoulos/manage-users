@@ -1,7 +1,7 @@
 :host {
-  .users-container {
-    display: grid;
-    grid-template-columns: [first] 33% [line2] 33% [line3] 33% [end];
-    grid-template-rows: [row1-start] 11rem [row1-end] 11rem [third-line] 11rem [last-line];
-  }
+    .users-container {
+        display: grid;
+        grid-template-columns: [first] 33% [line2] 33% [line3] 33% [end];
+        grid-template-rows: [row1-start] 11rem [row1-end] 11rem [third-line] 11rem [last-line];
+    }
 }

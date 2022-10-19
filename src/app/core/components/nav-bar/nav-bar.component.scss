@@ -1,39 +1,42 @@
 :host {
     display: block;
-    width: auto;
     height: 95px;
     position: relative;
+    width: auto;
+
     .usr-navbar-container {
-      background-color: #fff;
-      border-bottom: 5px solid #ebeff8;
-      height: 74px;
-      opacity: 1;
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      transition: all 0.2s linear;
-      width: 100%;
-      z-index: 500;
+        background-color: #fff;
+        border-bottom: 5px solid #ebeff8;
+        height: 74px;
+        opacity: 1;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        transition: all 0.2s linear;
+        width: 100%;
+        z-index: 500;
 
-      .usr-navbar {
-          display: flex;
-          flex-direction: row;
-          height: 70px;
-          justify-content: flex-start;
-          overflow: hidden;
+        .usr-navbar {
+            display: flex;
+            flex-direction: row;
+            height: 70px;
+            justify-content: flex-start;
+            overflow: hidden;
 
-          .logo {
-              line-height: 50px;
-              padding: 0 12px;
-              width: 70px;
-          }
-      }
-    .nav-tabs {
-      display: flex;
-      flex-direction: column;
-      li > .active {
-        color: green;
-      }
+            .logo {
+                line-height: 50px;
+                padding: 0 12px;
+                width: 70px;
+            }
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-direction: column;
+
+            li > .active {
+                color: green;
+            }
+        }
     }
-  }
 }

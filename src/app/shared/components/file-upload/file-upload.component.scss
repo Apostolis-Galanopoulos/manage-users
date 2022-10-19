@@ -1,16 +1,18 @@
 :host {
-  .file-input {
-    display: none;
-  }
-  .file-container {
-    display: flex;
-    flex-direction: column;
-    .image-preview {
-      height: 100px;
-      width: 100px;
-      display: flex;
-      justify-content: center;
-      margin-right: 1em;
+    .file-input {
+        display: none;
     }
-  }
+
+    .file-container {
+        display: flex;
+        flex-direction: column;
+
+        .image-preview {
+            display: flex;
+            height: 100px;
+            justify-content: center;
+            margin-right: 1em;
+            width: 100px;
+        }
+    }
 }
