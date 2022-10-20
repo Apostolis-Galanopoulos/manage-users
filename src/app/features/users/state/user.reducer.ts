@@ -4,49 +4,28 @@ import { User } from '../models/user.model';
 import * as UserActions from './user.action';
 import { IUserState } from './user.state';
 
-export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
+export const adapter: EntityAdapter<User> = createEntityAdapter<User>({
+  sortComparer: sortByDate,
+});
 
 export const initialState: IUserState = adapter.getInitialState({
     selectedUserId: null,
 });
+
+export function sortByDate (userA: User, userB: User): number {
+  return (new Date(userB.createAt).getTime() - new Date(userA.createAt).getTime());
+}
 
 export const userReducer = createReducer(
     initialState,
     on(UserActions.addUser, (state, { user }) => {
         return adapter.addOne(user, state);
     }),
-    on(UserActions.setUser, (state, { user }) => {
-        return adapter.setOne(user, state);
-    }),
-    on(UserActions.upsertUser, (state, { user }) => {
-        return adapter.upsertOne(user, state);
-    }),
-    on(UserActions.addUsers, (state, { users }) => {
-        return adapter.addMany(users, state);
-    }),
-    on(UserActions.upsertUsers, (state, { users }) => {
-        return adapter.upsertMany(users, state);
-    }),
     on(UserActions.updateUser, (state, { update }) => {
         return adapter.updateOne(update, state);
     }),
-    on(UserActions.updateUsers, (state, { updates }) => {
-        return adapter.updateMany(updates, state);
-    }),
-    on(UserActions.mapUser, (state, { entityMap }) => {
-        return adapter.mapOne(entityMap, state);
-    }),
-    on(UserActions.mapUsers, (state, { entityMap }) => {
-        return adapter.map(entityMap, state);
-    }),
     on(UserActions.deleteUser, (state, { id }) => {
         return adapter.removeOne(id, state);
-    }),
-    on(UserActions.deleteUsers, (state, { ids }) => {
-        return adapter.removeMany(ids, state);
-    }),
-    on(UserActions.deleteUsersByPredicate, (state, { predicate }) => {
-        return adapter.removeMany(predicate, state);
     }),
     on(UserActions.loadUsers, (state, { users }) => {
         return adapter.setAll(users, state);

@@ -17,9 +17,14 @@
         </div>
         <div class="input-field">
           <usr-input type="email" formControlNameValue="email" placeholder="Your email"> </usr-input>
-          <span  class="input-field-error error" *ngIf="userForm.get('email')?.errors && userForm.get('email')?.dirty">
-            Email is <strong>required</strong>
-          </span>
+          <div class="input-field-error error" *ngIf="emailController && userForm.get('email')?.dirty">
+            <span *ngIf="emailController && emailController['required']">
+              Email is <strong>required</strong>
+            </span>
+            <span *ngIf="emailController && emailController['pattern']">
+              You have entered an invalid email address. please check your email address and try again.
+            </span>
+          </div>
         </div>
       </div>
   </form>

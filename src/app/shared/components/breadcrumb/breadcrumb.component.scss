@@ -3,14 +3,25 @@
         display: flex;
         margin-bottom: 1rem;
 
-        .breadcrumb-link {
+        .breadcrumb-text {
             color: #000;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .breadcrumb-link {
+            color: #0275d8;
             font-size: 1.5em;
             font-weight: 600;
         }
 
         a {
             text-decoration: none;
+        }
+
+        a:hover {
+            color: #01447e;
+            text-decoration: underline;
         }
 
         span {

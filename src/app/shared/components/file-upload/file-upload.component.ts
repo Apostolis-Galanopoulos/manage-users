@@ -14,7 +14,7 @@ export class FileUploadComponent implements OnInit {
   @Input() accepts: string = '*';
   @Input() formControlNameValue!: string;
   @ViewChild(InputComponent) inputComponent!: InputComponent;
-  fileName!: string;
+  hasUploaded: boolean = false;
   base64Output!: string;
   constructor (
     private readonly cd: ChangeDetectorRef
@@ -22,9 +22,7 @@ export class FileUploadComponent implements OnInit {
   ngOnInit (): void {
     if (this.data) {
       this.base64Output = this.data;
-    }
-    if (this.formControlNameValue) {
-      this.fileName = this.formControlNameValue;
+      this.hasUploaded = true;
     }
   }
 
@@ -43,7 +41,7 @@ export class FileUploadComponent implements OnInit {
         this.fileUploaded.emit(base64);
         this.cd.detectChanges();
       });
-      this.fileName = file.name;
+      this.hasUploaded = true;
     }
   }
 

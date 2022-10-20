@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'usr-user-form',
@@ -14,5 +14,9 @@ export class UserFormComponent {
     if (this.userForm) {
       this.userForm!.get('avatar')!.setValue(data);
     }
+  }
+
+  get emailController (): ValidationErrors {
+    return this.userForm!.get('email')?.errors as ValidationErrors;
   }
 }

@@ -34,12 +34,13 @@ export class ManageUserService {
     if (userForm.valid) {
       const userData = userForm.value;
       userData.createAt = user.createAt;
+      userData.id = user.id;
       this.userService.update(userData)
       .pipe(
         tap(res => {
           const changes: Update<User> = {
             id: res.id,
-            changes: user
+            changes: res
         };
           this.store.dispatch(updateUser({ update: changes }));
         })

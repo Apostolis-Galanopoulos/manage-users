@@ -16,7 +16,7 @@ export class UserService {
    * @returns
    */
   getAll (): Observable<User[]> {
-    return this.httpService.get(`${ENDPOINT_USERS}?_sort=createAt`);
+    return this.httpService.get(`${ENDPOINT_USERS}?_sort=createAt&_order=desc`);
   }
   /**
    *
@@ -37,7 +37,7 @@ export class UserService {
   update (user: User): Observable<User> {
     const event = new Date();
     user.updateAt = event.toISOString();
-    return this.httpService.post(ENDPOINT_USERS, user);
+    return this.httpService.put(`${ENDPOINT_USERS}/${user.id}`, user);
   }
 /**
  *

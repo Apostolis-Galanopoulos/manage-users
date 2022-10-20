@@ -1,4 +1,12 @@
 <div class="container">
   <usr-breadcrumb *ngIf="breadcrumbs.length > 0" [breadcrumbs]="breadcrumbs"></usr-breadcrumb>
-  <usr-card [data]="{id: user.id ,name: user.name, lastName: user.lastName, email: user.email, avatar: user.avatar, hasDeleteAction: false}"></usr-card>
+  <div class="card">
+    <div class="image-preview">
+        <usr-display-image mat-card-sm-image [source]="user.avatar"></usr-display-image>
+    </div>
+    <div class="information">
+        <h2 class="username">{{user.name}} {{user.lastName}}</h2>
+        <span class="email">{{user.email}}</span>
+    </div>
+  </div>
 </div>

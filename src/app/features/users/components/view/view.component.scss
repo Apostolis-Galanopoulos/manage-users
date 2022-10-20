@@ -1,0 +1,51 @@
+:host {
+    .card {
+        background-clip: border-box;
+        background-color: #fff;
+        border: 1px solid rgb(0 0 0 / 12.5%);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        word-wrap: break-word;
+
+        &::before {
+            background-color: #8e24aa;
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 4px;
+        }
+
+        .image-preview {
+            display: flex;
+            justify-content: center;
+            height: 140px;
+            width: 140px;
+            margin: 0 auto;
+        }
+
+        .information {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .username {
+                color: #000;
+                font-weight: 500;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+
+            .email {
+                color: #000;
+                text-align: center;
+            }
+        }
+    }
+}

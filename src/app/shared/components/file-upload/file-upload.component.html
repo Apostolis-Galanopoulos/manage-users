@@ -2,7 +2,7 @@
 <div class="file-container">
   <usr-display-image [source]="base64Output" class="image-preview"></usr-display-image>
   <div class="file-upload">
-    {{ fileName || "No file uploaded yet." }}
+    {{ hasUploaded ? "Uploaded" : "No file uploaded yet." }}
 
     <usr-button
       type="icon"

@@ -6,16 +6,23 @@
 
         img {
             border-radius: 100%;
-            border-radius: 100%;
         }
 
         .mat-card-title {
             font-size: medium !important;
+            overflow: hidden;
             padding-left: 0.5em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 170px;
         }
 
         .mat-card-subtitle {
+            overflow: hidden;
             padding-left: 0.5em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 170px;
         }
     }
 }
@@ -27,5 +34,9 @@
 
     .user-card-group {
         cursor: pointer;
+        .image-preview {
+          height: 80px;
+          width: 80px;
+        }
     }
 }
