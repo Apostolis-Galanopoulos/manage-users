@@ -33,10 +33,6 @@
         .nav-tabs {
             display: flex;
             flex-direction: column;
-
-            li > .active {
-                color: green;
-            }
         }
     }
 }

@@ -6,9 +6,11 @@ e2e tests and integration haven't been developed due to limited time.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
+## Run application
+Run `./run-app.sh` to start both the back-end service and the front-end service. The application runs in the following address `http://localhost` for the UI side and `http://localhost:3000` on the back-end service.
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Start with the mock back-end service `npm run start-mock-server` which is json-server.
+Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -22,10 +24,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Troubleshooting
+If you run `./run-app.sh` make sure that the ports `3000 & 80` haven't already been used.
+If you want to develop and run the app on the `4200` check if this port is available.
+For more details open a terminal and run the `docker ps -a` command.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Missing bits
+The delete button has been moved to the right side of the page. On the edit user page

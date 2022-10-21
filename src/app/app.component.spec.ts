@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'manage-users'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('manage-users');
+    expect(app.title).toEqual('Manage Users');
   });
 
   it('should contain the usr-nav-bar', () => {

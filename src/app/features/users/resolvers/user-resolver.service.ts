@@ -16,7 +16,7 @@ export class UserResolverService implements Resolve<unknown> {
     _state: RouterStateSnapshot
   ): Observable<User> {
     const userId = route.params['id'];
-    return this.userService.gteOne(userId);
+    return this.userService.getOne(userId);
   }
 
 }
