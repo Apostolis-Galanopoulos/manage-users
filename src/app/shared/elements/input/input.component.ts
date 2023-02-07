@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { AbstractControl, ControlContainer, ControlValueAccessor, FormControl } from '@angular/forms';
 import { SafeHtmlPipe } from '@app/shared/pipes/safe-html.pipe';
 
@@ -9,7 +9,7 @@ import { SafeHtmlPipe } from '@app/shared/pipes/safe-html.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [SafeHtmlPipe]
 })
-export class InputComponent implements ControlValueAccessor, AfterViewInit {
+export class InputComponent implements ControlValueAccessor {
 
   @Input() accepts: string = '*';
   @Output() change: EventEmitter<Event> = new EventEmitter();
@@ -22,7 +22,6 @@ export class InputComponent implements ControlValueAccessor, AfterViewInit {
   constructor (
     private readonly controlContainer: ControlContainer) { }
 
-  ngAfterViewInit (): void {}
   writeValue (): void {
 
   }
@@ -34,7 +33,8 @@ export class InputComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   get formControl (): FormControl {
-    return this.control = this.controlContainer.control!!.get(this.formControlNameValue) as FormControl;
+   this.control = this.controlContainer.control!!.get(this.formControlNameValue) as FormControl;
+   return this.control as FormControl;
   }
   changeEvent (event: Event) {
     this.change.emit(event);

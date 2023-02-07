@@ -8,15 +8,14 @@ import { FormGroup, ValidationErrors } from '@angular/forms';
 })
 export class UserFormComponent {
   @Input() userForm!: FormGroup;
-  constructor (
-  ) { }
+
   fileUploaded (data: string): void {
     if (this.userForm) {
-      this.userForm!.get('avatar')!.setValue(data);
+      this.userForm.get('avatar')!.setValue(data);
     }
   }
 
   get emailController (): ValidationErrors {
-    return this.userForm!.get('email')?.errors as ValidationErrors;
+    return this.userForm.get('email')?.errors as ValidationErrors;
   }
 }

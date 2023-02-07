@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  #SonarQube
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+      - SONAR_JDBC_URL=jdbc:postgresql://postgres/sonar
+      - SONAR_JDBC_USERNAME=sonar
+      - SONAR_JDBC_PASSWORD=jw8s0F4
+    networks:
+      - app-network
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+  #sonar scanner cli
+  sonarscanner:
+    container_name: sonar-scanner-cli
+    image: sonarsource/sonar-scanner-cli:latest
+    volumes:
+      - ./:/usr/src
+      - ./sonar-project.properties:/opt/sonar-scanner/conf/sonar-scanner.properties \
+    # environment:
+      # - SONAR_HOST_URL=http://sonarqube:9000
+      # - SONAR_LOGIN=admin
+      # - SONAR_LOGIN=apo39096
+      # - SONAR_projectName=manage-user
+    restart: unless-stopped
+    depends_on:
+      - sonarqube
+    networks:
+      - app-network
+networks:
+  app-network:
+    external: true
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+  sonarqube_bundled-plugins:
+
+
+# e789f81a5dd2785010a47bad584281772e3fb716
